@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Laura y Nicole, tus amigas virtuales",
+  "description": "Una aplicación para conversar con Laura (voz) y Nicole (chat), dos hermanas IA creadas por Natanael como parte del prototipo Amigo Virtual v6.2.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
