@@ -1,24 +1,93 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amigo Virtual v6.2</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
-  }
-}
-</script>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humor de Escuela y México</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .jokes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .joke {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .joke:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .joke h2 {
+            color: #e74c3c;
+            font-size: 1.25rem;
+            margin-top: 0;
+        }
+        .joke p, .joke ol {
+            font-size: 1rem;
+            line-height: 1.6;
+            padding-left: 0;
+        }
+        .joke ol {
+             padding-left: 1.2rem;
+        }
+    </style>
 </head>
-  <body class="bg-gray-900 text-gray-200 font-sans">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<body>
+    <h1>Humor de Escuela y México</h1>
+    <div class="jokes-container">
+        <div class="joke">
+            <h2>¿Qué pasaría si un alienígena aterriza en México?</h2>
+            <ol>
+                <li>Le quitan las llantas al coche y lo venden por piezas.</li>
+                <li>Derriten el material de la nave.</li>
+                <li>Se lo roban.</li>
+            </ol>
+        </div>
+        <div class="joke">
+            <h2>¿Por qué los mexicanos no compiten en las olimpiadas?</h2>
+            <p>Porque los que corren ya cruzaron la frontera, los que nadan también y los que saltan están en el muro.</p>
+        </div>
+        <div class="joke">
+            <h2>¿Qué le dice un jaguar a otro jaguar?</h2>
+            <p>"Jaguar you?"</p>
+        </div>
+        <div class="joke">
+            <h2>¿Cómo se dice "pelo" en chino?</h2>
+            <p>Chin-champu.</p>
+        </div>
+        <div class="joke">
+            <h2>¿Qué hace un mexicano con una escoba?</h2>
+            <p>¡Barre-o-sinco!</p>
+        </div>
+        <div class="joke">
+            <h2>¿Cuál es el colmo de un electricista?</h2>
+            <p>Que su esposa se llame Luz y sus hijos le sigan la corriente.</p>
+        </div>
+    </div>
+</body>
 </html>
