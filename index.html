@@ -8,86 +8,167 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --font-primary: 'Poppins', sans-serif;
+            --color-bg: #F8F9FA;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #212529;
+            --color-text-secondary: #6C757D;
+            --color-accent: #69bde0;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
+            font-family: var(--font-primary);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
             margin: 0;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
+
+        .app-header {
+            width: 100%;
+            padding: 2rem 0;
             text-align: center;
+            margin-bottom: 2rem;
         }
-        .jokes-container {
+
+        .app-header h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin: 0;
+        }
+
+        .main-content {
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .jokes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 1200px;
+            gap: 2rem;
         }
-        .joke {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        .joke-card {
+            background-color: var(--color-surface);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #E9ECEF;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
         }
-        .joke:hover {
+
+        /* Staggered animation delay */
+        .joke-card:nth-child(1) { animation-delay: 0.1s; }
+        .joke-card:nth-child(2) { animation-delay: 0.2s; }
+        .joke-card:nth-child(3) { animation-delay: 0.3s; }
+        .joke-card:nth-child(4) { animation-delay: 0.4s; }
+        .joke-card:nth-child(5) { animation-delay: 0.5s; }
+        .joke-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+        .joke-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-md);
         }
-        .joke h2 {
-            color: #e74c3c;
-            font-size: 1.25rem;
+
+        .joke-card h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-accent);
             margin-top: 0;
+            margin-bottom: 1rem;
         }
-        .joke p, .joke ol {
-            font-size: 1rem;
-            line-height: 1.6;
+
+        .joke-card p, .joke-card ol {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
             padding-left: 0;
+            margin: 0;
         }
-        .joke ol {
-             padding-left: 1.2rem;
+
+        .joke-card ol {
+            padding-left: 1.2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .main-content {
+                padding: 0 1rem;
+            }
+            .app-header h1 {
+                font-size: 1.8rem;
+            }
+            .joke-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Humor de Escuela y México</h1>
-    <div class="jokes-container">
-        <div class="joke">
-            <h2>¿Qué pasaría si un alienígena aterriza en México?</h2>
-            <ol>
-                <li>Le quitan las llantas al coche y lo venden por piezas.</li>
-                <li>Derriten el material de la nave.</li>
-                <li>Se lo roban.</li>
-            </ol>
+    <header class="app-header">
+        <h1>Humor de Escuela y México</h1>
+    </header>
+
+    <main class="main-content">
+        <div class="jokes-grid">
+            <div class="joke-card">
+                <h2>¿Qué pasaría si un alienígena aterriza en México?</h2>
+                <ol>
+                    <li>Le quitan las llantas al coche y lo venden por piezas.</li>
+                    <li>Derriten el material de la nave.</li>
+                    <li>Se lo roban.</li>
+                </ol>
+            </div>
+            <div class="joke-card">
+                <h2>¿Por qué los mexicanos no compiten en las olimpiadas?</h2>
+                <p>Porque los que corren ya cruzaron la frontera, los que nadan también y los que saltan están en el muro.</p>
+            </div>
+            <div class="joke-card">
+                <h2>¿Qué le dice un jaguar a otro jaguar?</h2>
+                <p>"Jaguar you?"</p>
+            </div>
+            <div class="joke-card">
+                <h2>¿Cómo se dice "pelo" en chino?</h2>
+                <p>Chin-champu.</p>
+            </div>
+            <div class="joke-card">
+                <h2>¿Qué hace un mexicano con una escoba?</h2>
+                <p>¡Barre-o-sinco!</p>
+            </div>
+            <div class="joke-card">
+                <h2>¿Cuál es el colmo de un electricista?</h2>
+                <p>Que su esposa se llame Luz y sus hijos le sigan la corriente.</p>
+            </div>
         </div>
-        <div class="joke">
-            <h2>¿Por qué los mexicanos no compiten en las olimpiadas?</h2>
-            <p>Porque los que corren ya cruzaron la frontera, los que nadan también y los que saltan están en el muro.</p>
-        </div>
-        <div class="joke">
-            <h2>¿Qué le dice un jaguar a otro jaguar?</h2>
-            <p>"Jaguar you?"</p>
-        </div>
-        <div class="joke">
-            <h2>¿Cómo se dice "pelo" en chino?</h2>
-            <p>Chin-champu.</p>
-        </div>
-        <div class="joke">
-            <h2>¿Qué hace un mexicano con una escoba?</h2>
-            <p>¡Barre-o-sinco!</p>
-        </div>
-        <div class="joke">
-            <h2>¿Cuál es el colmo de un electricista?</h2>
-            <p>Que su esposa se llame Luz y sus hijos le sigan la corriente.</p>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
